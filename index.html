@@ -1,23 +1,1025 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+    <!-- Structured Data (JSON-LD) for Search Engine & AI Agent Crawling -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "기아 디 올 뉴 니로 (Kia Niro)",
+      "image": "https://yourdomain.com/images/niro-main.jpg",
+      "description": "2026년형 기아 니로 하이브리드 및 EV 모델의 상세 가격표, 옵션 정보, 국고 보조금, 취등록세 계산 및 모의 견적 비교 서비스를 제공합니다.",
+      "brand": {
+        "@type": "Brand",
+        "name": "기아 (KIA)"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "KRW",
+        "lowPrice": "28320000",
+        "highPrice": "51200000",
+        "offerCount": "15",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "2026 니로 하이브리드 트렌디",
+            "price": "28320000",
+            "priceCurrency": "KRW"
+          },
+          {
+            "@type": "Offer",
+            "name": "2026 니로 하이브리드 시그니처",
+            "price": "34640000",
+            "priceCurrency": "KRW"
+          },
+          {
+            "@type": "Offer",
+            "name": "2026 니로 EV 어스",
+            "price": "51200000",
+            "priceCurrency": "KRW"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #2b3e50;
+            --accent-color: #4a90e2;
+            --bg-light: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --success-color: #10b981;
+            --border-color: #e2e8f0;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a3a 100%);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            color: #cbd5e1;
+        }
+
+        nav {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 0.8rem 1.2rem;
+            font-weight: 500;
+            color: var(--text-main);
+            border-radius: 6px;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--bg-light);
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        section h2 {
+            font-size: 1.7rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        section h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+            font-size: 1.05rem;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Interactive Calculator Styles */
+        .calculator-container {
+            background-color: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .form-group select, .form-group input[type="text"], .form-group input[type="tel"] {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #ffffff;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group select:focus, .form-group input:focus {
+            border-color: var(--accent-color);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0 2rem 0;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .checkbox-container:hover {
+            background-color: #f1f5f9;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-color);
+        }
+
+        .result-box {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .result-box h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #94a3b8;
+        }
+
+        .result-box .price-display {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #38bdf8;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+        }
+
+        .breakdown-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .breakdown-item strong {
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        /* Modern Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: #ffffff;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #fafbfb;
+        }
+
+        /* CSS-Based Chart styles */
+        .chart-container {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .chart-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .bar-row {
+            margin-bottom: 1.2rem;
+        }
+
+        .bar-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .bar-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .bar-wrapper {
+            background-color: #e2e8f0;
+            border-radius: 50px;
+            height: 24px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .bar {
+            height: 100%;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Accordion for FAQ */
+        .faq-dl dt {
+            background-color: #f8fafc;
+            padding: 1.2rem;
+            border-radius: 6px;
+            margin-top: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+            outline: none;
+        }
+
+        .faq-dl dt:hover {
+            background-color: #f1f5f9;
+        }
+
+        .faq-dl dd {
+            padding: 1.2rem;
+            border-left: 3px solid var(--accent-color);
+            background-color: #ffffff;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            display: none;
+        }
+
+        /* Custom Tags & Info boxes */
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .keyword-tags a {
+            background-color: #eaf2f8;
+            color: #2c5282;
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .keyword-tags a:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .info-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--success-color);
+            padding: 1.2rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .danger-box {
+            background-color: #fff1f2;
+            border-left: 4px solid #f43f5e;
+            padding: 1.2rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #3182ce;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 3rem 0;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #cbd5e1;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>2026 기아 니로 가격표 분석 및 하이브리드 EV 상세 견적 비교</h1>
+        <p>친환경 준중형 SUV 시장의 기준인 기아 니로의 트림별 상세 옵션 정보와 지역별 전기차 보조금 혜택 및 모의 실구매 예상 금액을 한눈에 정확히 확인하세요.</p>
+    </header>
+
+    <nav aria-label="주요 메뉴">
+        <ul>
+            <li><a href="#견적계산기">모의 견적 계산기</a></li>
+            <li><a href="#가격비교">모델별 가격 분석</a></li>
+            <li><a href="#장단점">실주행 오너 리뷰</a></li>
+            <li><a href="#보조금">친환경 지원 혜택</a></li>
+            <li><a href="#정보센터">심층 분석 센터</a></li>
+            <li><a href="#자주묻는질문">자주 묻는 질문</a></li>
+        </ul>
     </nav>
+
     <main>
-      <h1>Home page</h1>
+        
+        <section id="견적계산기">
+            <h2>기아 니로 실시간 모의 견적 계산기</h2>
+            <p>선호하는 모델과 트림을 선택하고 추가하고 싶은 옵션을 지정하시면, 2026년도 개별소비세 실효세율 및 친환경 차량 감면 규정을 반영한 최종 예상 금액과 취등록세를 실시간으로 확인하실 수 있습니다.</p>
+            
+            <div class="calculator-container">
+                <form id="niro-calc-form" onsubmit="return false;">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="model-select">1. 모델 종류 선택</label>
+                            <select id="model-select" onchange="updateTrimOptions(); calculateEstimate();">
+                                <option value="hev" selected>2026 니로 하이브리드 (1.6 HEV)</option>
+                                <option value="ev">2026 니로 EV (순수 전기차)</option>
+                                <option value="plus">2026 니로 플러스 (파생형 모델)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="trim-select">2. 세부 트림 선택</label>
+                            <select id="trim-select" onchange="calculateEstimate();">
+                                <!-- Trims will be populated dynamically by JavaScript -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="region-select">3. 거주 지역 선택 (전기차 보조금 계산용)</label>
+                            <select id="region-select" onchange="calculateEstimate();">
+                                <option value="seoul">서울특별시</option>
+                                <option value="gyeonggi">경기도 성남/수원/용인</option>
+                                <option value="incheon">인천광역시</option>
+                                <option value="busan">부산광역시</option>
+                                <option value="daegu">대구광역시</option>
+                                <option value="sejong">세종특별자치시</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. 추가 구성 품목 (선택사항)</label>
+                        <div class="options-grid" id="options-container">
+                            <!-- Options will be populated dynamically by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="result-box">
+                        <h4>최종 모의 견적 예상 금액</h4>
+                        <div class="price-display" id="res-final">0 원</div>
+                        <div class="result-breakdown">
+                            <div class="breakdown-item">
+                                <span>차량 기본 탁송가</span>
+                                <strong id="res-factory-price">0 원</strong>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>예상 취등록세 (감면적용)</span>
+                                <strong id="res-tax">0 원</strong>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>친환경 국고/지방 보조금</span>
+                                <strong id="res-subsidy">0 원</strong>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="info-box">
+                <strong>안내사항:</strong> 위 계산 금액은 표준 세제 혜택 및 지방세 감면 세액을 기초로 연산된 추정치입니다. 실제 출고 대리점의 장기렌트, 오토캐시백 현금지원율 및 카드 할인 프로모션 혜택 적용에 따라 다소 차이가 있을 수 있으므로 전문 상담 대리점에서 다이렉트 견적서를 추가 확인하시는 방법을 추천합니다.
+            </div>
+
+            <div class="keyword-tags" aria-label="주요 연관 키워드">
+                <a href="#가격비교">니로 하이브리드 가격</a>
+                <a href="#가격비교">니로 EV 가격</a>
+                <a href="#보조금">니로 EV 보조금</a>
+                <a href="#견적계산기">니로 취등록세 계산</a>
+                <a href="#장단점">니로 하이브리드 연비</a>
+                <a href="#가격비교">니로 풀옵션 가격</a>
+                <a href="#가격비교">니로 깡통 가격</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="가격비교">
+            <h2>2026년형 기아 니로 공식 판매 가격 분석</h2>
+            <p>기아의 대표적인 하이브리드 전용 친환경 차량인 디 올 뉴 니로 및 더 뉴 니로 시리즈의 2026년도 공식 출고가 분포표입니다. 본 정보는 개별소비세 인하 혜택 종료 이후의 최종 세율 조정을 기초로 기재되었습니다.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>엔진 및 모델 종류</th>
+                            <th>추천 트림명</th>
+                            <th>기본 공장 가격 (개소세 반영)</th>
+                            <th>최대 연비 및 주요 특징</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>니로 1.6 HEV (하이브리드)</td>
+                            <td>니로 하이브리드 트렌디</td>
+                            <td>28,850,000 원</td>
+                            <td>20.2km/l, 기본 10에어백 시스템 적용</td>
+                        </tr>
+                        <tr>
+                            <td>니로 1.6 HEV (하이브리드)</td>
+                            <td>니로 하이브리드 프레스티지</td>
+                            <td>31,950,000 원</td>
+                            <td>12.3인치 내비게이션, 1열 통풍 시트 기본화</td>
+                        </tr>
+                        <tr>
+                            <td>니로 1.6 HEV (하이브리드)</td>
+                            <td>니로 하이브리드 베스트 셀렉션</td>
+                            <td>32,060,000 원</td>
+                            <td>후측방 충돌 방지 보조 및 실속형 옵션 보강</td>
+                        </tr>
+                        <tr>
+                            <td>니로 1.6 HEV (하이브리드)</td>
+                            <td>니로 하이브리드 시그니처</td>
+                            <td>34,640,000 원</td>
+                            <td>이중접합 차음 글라스, 고속도로 주행 보조 2 탑재</td>
+                        </tr>
+                        <tr>
+                            <td>2026 니로 EV (순수전기차)</td>
+                            <td>니로 EV 에어</td>
+                            <td>48,850,000 원</td>
+                            <td>64.8kWh 리튬 이온 배터리, 1회 충전 401km</td>
+                        </tr>
+                        <tr>
+                            <td>2026 니로 EV (순수전기차)</td>
+                            <td>니로 EV 어스</td>
+                            <td>51,200,000 원</td>
+                            <td>고급 실내 무드 조명, 실외 V2L 커넥터 기본 탑재</td>
+                        </tr>
+                        <tr>
+                            <td>니로 플러스 (목적 기반 모빌리티)</td>
+                            <td>니로 플러스 택시 / 일반형</td>
+                            <td>46,500,000 원 ~</td>
+                            <td>도심형 실내 전고 확장 설계, 주행 경제성 극대화</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>기존 디 올 뉴 니로 모델에서 2026년형 상품성 개선 모델로 연식이 변경되면서 스티어링 휠 그립 감지 센서와 전방 충돌 방지 보조의 감지 영역이 대폭 넓어져 안전성이 향상되었습니다. 비록 트렌디 등급의 가격이 이전 대비 다소 상승했으나 최상위 시그니처 트림은 부품 공정 최적화를 통해 오히려 가격이 인하되어 풀옵션 구성을 선호하는 사용자들에게 더욱 매력적인 선택지가 되었습니다.</p>
+
+            <div class="chart-container">
+                <div class="chart-title">2026년 기준 주요 차종별 복합 연료 효율 비교 (하이브리드 가솔린)</div>
+                <div class="bar-row">
+                    <span class="bar-label">디 올 뉴 니로 하이브리드 (복합 연비)</span>
+                    <div class="bar-wrapper">
+                        <div class="bar" style="width: 100%; background-color: var(--accent-color);">20.2 km/l</div>
+                    </div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">현대 디 올 뉴 코나 하이브리드</span>
+                    <div class="bar-wrapper">
+                        <div class="bar" style="width: 90%; background-color: var(--text-muted);">19.8 km/l</div>
+                    </div>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">기아 디 올 뉴 셀토스 가솔린 1.6</span>
+                    <div class="bar-wrapper">
+                        <div class="bar" style="width: 63%; background-color: #cbd5e1;">12.8 km/l</div>
+                    </div>
+                </div>
+            </div>
+            <p class="figure-caption">위 연비 비교 지표에서 알 수 있듯이 니로 하이브리드는 동급 소형 및 준중형 크로스오버 SUV 중 가장 독보적인 효율성을 증명하며 뛰어난 가성비를 인정받고 있습니다.</p>
+        </section>
+
+        <hr>
+
+        <section id="장단점">
+            <h2>실주행 오너 리뷰 및 주요 커뮤니티 종합 장단점 분석</h2>
+            <p>다양한 자동차 동호회 플랫폼인 보배드림, 디시인사이드 자동차 갤러리, 펨코(에펨코리아) 및 유튜브 오너 시승기 리뷰 자료들을 취합하여 신차 구매 전에 반드시 확인해야 할 객관적인 특징들을 정리했습니다.</p>
+            
+            <h3>체계적으로 요약된 장점 요소</h3>
+            <ul>
+                <li><strong>경이로운 실제 연비:</strong> 정체 구간이 많은 도심 정체 주행 시에도 평균 리터당 20킬로미터 이상의 실연비를 손쉽게 달성할 수 있어 가솔린 유지비 절감에 최고의 선택입니다.</li>
+                <li><strong>넓은 실내 거주 공간:</strong> 니로 SG2 모델은 전폭과 휠베이스가 대폭 늘어나 2열 좌석 헤드룸과 레그룸이 무척 쾌적하며, 패밀리카 수준의 실용성을 구현합니다.</li>
+                <li><strong>뛰어난 감가 방어력:</strong> 신차 출고 이후 중고차 시장에서 인기 하이브리드 모델로서 브랜드 파워와 최상위 순위의 중고 잔존 가치를 꾸준히 유지합니다.</li>
+                <li><strong>편리한 전기차 혜택:</strong> 하이브리드는 공영주차장 및 공항 주차장 이용 요금 50퍼센트 할인, 남산터널 혼잡통행료 면제 등의 다이렉트 공익 혜택을 제공받습니다.</li>
+            </ul>
+
+            <h3>구입 전 신중히 따져보아야 할 단점 요소</h3>
+            <ul>
+                <li><strong>다소 무난한 가속 성능:</strong> 시스템 합산 출력 141마력의 니로 1.6 HEV 파워트레인은 철저히 경제성에 세팅되어 있어 강력한 고속 추월 성능이나 스포티한 드라이빙 감각을 즐기는 운전자에게는 다소 답답하게 느껴질 수 있습니다.</li>
+                <li><strong>고속 주행 시 노면 소음:</strong> 하이브리드 특유의 저속 모터 주행 시에는 실내가 대단히 조용하지만, 시속 100킬로미터 이상의 고속 도로 주행 단계에서는 휠하우스 뒤편과 하부에서 올라오는 노면 소음 및 풍절음 유입에 관한 주관적인 아쉬움이 제기되기도 합니다.</li>
+                <li><strong>옵션 조합 시 가격 상승:</strong> 일명 니로 깡통 가격은 준수한 수준이지만, 편리한 첨단 안전 패키지인 니로 하이브리드 드라이브 와이즈, 니로 하이브리드 스타일 및 하이테크 패키지를 결합하면 견적 총액이 3천만 원 중후반대로 가파르게 인상되어 상위 세그먼트인 스포티지나 투싼 하이브리드 가격과 겹치게 됩니다.</li>
+            </ul>
+
+            <div class="danger-box">
+                <strong>오너 리포트 핵심 팁:</strong> 커뮤니티 디시 게시판의 실제 내돈내산 출고 후기 조언에 따르면, 가성비를 극대화하기 위해 하위 트렌디 트림에서 니로 하이브리드 네비게이션 옵션만 추가하여 구매하는 방법이 실속파 유저들 사이에서 제일 선호도가 높습니다. 만약 풍부한 인테리어를 원한다면 베스트 셀렉션 등급을 선택하시는 전략이 가장 현명합니다.
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="보조금">
+            <h2>2026년도 친환경 차량 보조금 및 혜택 신청 가이드</h2>
+            <p>2026년에는 정부의 배터리 안전성 인증 제도와 친환경 지원 기준 세분화 정책이 본격 도입되었습니다. 이에 따라 니로 EV 모델을 인도받을 시에 확보할 수 있는 예산 지원 규모가 변동되었습니다.</p>
+
+            <h3>1. 순수전기차 니로 EV 국가 보조금 및 지자체 매칭 지원금</h3>
+            <p>전기차 가격 분포에 따라 2026년도 국가 국고 보조금 100퍼센트 수급 한도가 소폭 조정되었습니다. 2026 니로 EV는 배터리 효율 계수와 충전 인프라 기여도 평가 요소를 온전히 만족하여 국고 지원금 최대 수령 대상 차량에 포함됩니다.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>거주 행정 구역</th>
+                            <th>2026 국고 보조금 예상액</th>
+                            <th>지방자치단체 추가 보조금</th>
+                            <th>최종 실구매 혜택 총액</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>서울특별시 기준</td>
+                            <td>6,200,000 원</td>
+                            <td>1,500,000 원</td>
+                            <td>7,700,000 원 감면</td>
+                        </tr>
+                        <tr>
+                            <td>경기도 성남시 기준</td>
+                            <td>6,200,000 원</td>
+                            <td>2,800,000 원</td>
+                            <td>9,000,000 원 감면</td>
+                        </tr>
+                        <tr>
+                            <td>인천광역시 기준</td>
+                            <td>6,200,000 원</td>
+                            <td>3,000,000 원</td>
+                            <td>9,200,000 원 감면</td>
+                        </tr>
+                        <tr>
+                            <td>부산광역시 기준</td>
+                            <td>6,200,000 원</td>
+                            <td>2,500,000 원</td>
+                            <td>8,700,000 원 감면</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. 하이브리드 모델의 세제 및 취등록세 감면 요금 혜택</h3>
+            <p>친환경 1.6 HEV 모델을 새로 인도받을 때 부과되는 취등록세는 기존 7퍼센트 취득세 부과 규정에서 최대 40만 원의 친환경 하이브리드 개별 세제 감면 혜택이 2026년 말까지 연장 적용되어 세금 납부 요금 총액이 한결 가벼워졌습니다. 또한 최초 등록 시 의무적으로 매입해야 하는 지하철 공채 매입 의무 금액 역시 지자체 조례에 따라 일부 전액 면제 혜택을 누릴 수 있습니다.</p>
+        </section>
+
+        <hr>
+
+        <section id="정보센터">
+            <h2>기아 니로 신차 온라인 출고 분석 가이드</h2>
+            <div class="long-content">
+                <p>신차를 안전하게 가장 싼곳에서 신규 발급하는 방법은 제조사의 오프라인 매장을 통한 대면 대리점 계약 외에도, 최근 인터넷 중심의 온라인 비대면 신차 금융 사이트를 경유하는 다이렉트 출고가 보편화되는 양상입니다. 특히 토스 금융 어플이나 카카오톡 특판 채널 등을 활용하면 카드 제휴사 연계 일시불 오토캐시백 캐시백 현금지원 및 풍성한 블랙박스 썬팅 사은품 패키지 혜택을 투명하게 사전에 가늠해 볼 수 있습니다.</p>
+
+                <p>최근 2~3년 사이에 2030 사회 초년생들을 중심으로 스마트폰 전용 앱 기반 맞춤 신차 견적 비교 플랫폼을 거쳐 출고하는 방식이 꾸준한 각광을 받고 있습니다. 여러 신차 제휴 금융 업체의 실시간 잔가 보장 요율제와 최적의 이율 조건을 한 자리에서 객관적으로 컨설팅하고 순위를 매겨 주기 때문입니다. 이는 개별 영업사원의 사적인 마진 구조를 배제하고 소비자가 다이렉트로 제일 경제적인 견적 좌표를 전달받을 수 있다는 부분에서 매우 편리한 구매 방법으로 입증되었습니다.</p>
+
+                <p>차량을 구매한 이후의 총 소유 유지 요금 역시 매우 매력적입니다. 하이브리드 특유의 탁월한 연비 성과 외에도 소모품 교체 사이클이 상대적으로 길고, 공영 시설 통행 요금 할인 등의 부대 가치가 공존하므로 차량 잔존 가치 측면에서 단연 동급 최고 수준의 순위 경쟁력을 오랫동안 누릴 수 있습니다. 세밀한 등급 및 트림별 사양 분석표와 정밀 모의 수치 산정이 필요하신 분들은 주저 없이 본 포털의 계산기 도구와 전문적인 1:1 예약 분석 시스템을 적극 이용해 보실 것을 권장합니다.</p>
+                
+                <p>소중한 자산을 효율적으로 지키는 똑똑한 카라이프의 첫 시작은 명확하고 투명한 가격 요소를 제대로 이해하는 것부터 시작됩니다. 2026년도 최신 트렌드를 고스란히 이식한 이번 개선형 니로는 기술과 친환경 가치 모두를 균형 있게 충족하며 높은 경쟁력을 제공합니다.</p>
+            </div>
+
+            <h3>공인된 신뢰성 있는 자동차 분야 대외 리소스</h3>
+            <div class="related-links" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem;">
+                <a href="https://directncheckl.koreahankang.com" target="_blank" rel="noopener">차량 비교 및 모의견적 전문 정보 사이트</a>
+                <a href="https://namu.wiki/w/%EA%B8%B0%EC%95%84%20%EB%8B%88%EB%A1%9C" target="_blank" rel="noopener">기아 니로 백과사전 정보 및 역사 (나무위키)</a>
+                <a href="https://www.kia.com" target="_blank" rel="noopener">기아자동차 공식 온라인 견적 확인 사이트</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="상담신청">
+            <h2>맞춤 견적 상담 및 다이렉트 출고 컨설팅 신청</h2>
+            <p>다양한 신차 프로모션 정보, 특판 성지 좌표 및 카드 일시불 캐시백 현금지원율 등 상세한 특가 이벤트 조건이 궁금하신가요? 아래 간단한 서식을 작성해주시면 검증된 전문 카매니저를 통해 안전하고 신속하게 맞춤 견적 조회를 도와 드립니다.</p>
+            
+            <form action="#" method="POST" onsubmit="alert('상담 신청이 완료되었습니다. 영업일 기준 빠른 시간 내에 연락드리겠습니다.'); return false;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="user-name">성함 (실명)</label>
+                        <input type="text" id="user-name" placeholder="홍길동" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-tel">연락처 (휴대폰 번호)</label>
+                        <input type="tel" id="user-tel" placeholder="010-0000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="consult-type">희망 구매 방식</label>
+                        <select id="consult-type">
+                            <option value="cash">카드 일시불 (오토캐시백 최대 혜택)</option>
+                            <option value="loan">다이렉트 신차 할부 금융</option>
+                            <option value="rent">합리적인 무보증 장기렌트 / 리스</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="user-memo">문의 상세 내용 (선택)</label>
+                    <input type="text" id="user-memo" placeholder="예: 니로 하이브리드 시그니처 모델 2026년식 즉시 출고 가능 재고 및 현금지원 혜택을 상세히 알아보고 싶습니다.">
+                </div>
+                <button type="submit" class="submit-btn">무료 맞춤 컨설팅 및 비교 견적 신청하기</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="자주묻는질문">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <dl class="faq-dl">
+                <dt tabindex="0" aria-expanded="false">Q. 니로 하이브리드 모델과 EV 순수 전기차 모델의 가장 주된 경제적 차이점은 무엇인가요?</dt>
+                <dd>A. 하이브리드 모델은 충전 스트레스 없이 일반 주유소에서 가솔린을 주유하며 편리하게 장거리 운행을 소화하며 리터당 20킬로미터 이상의 고연비를 제공합니다. 반면 니로 EV 모델은 저렴한 한국전력의 공공 급속 및 완속 전기 충전 요금제를 활용하여 연료 요금 비용을 최대 70퍼센트 가량 획기적으로 절약할 수 있다는 강점이 있습니다. 일년 주행거리가 2만 킬로미터를 훌쩍 초과하는 장거리 통근자에게는 전기차가 장기적으로 한결 유리합니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">Q. 신차를 살 때 주유 상품권이나 오토캐시백 추가 지원금 혜택은 어떤 방식으로 제공받나요?</dt>
+                <dd>A. 기아의 공식 출고 조건 이외에 대기업 금융 플랫폼인 토스나 핀다 같은 온라인 제휴 신청 서비스를 이용하거나 영맨 특판 성지 대리점을 통해 차량 금액 결제용 전용 카드를 가입하여 일시불 일시 결제를 진행할 경우, 카드사로부터 결제 대금의 최대 1.5퍼센트에서 2퍼센트 선의 현금 다이렉트 페이백 혜택을 지원금 형태로 수령할 수 있습니다.</dd>
+                
+                <dt tabindex="0" aria-expanded="false">Q. 니로 하이브리드 드라이브 와이즈 옵션 패키지는 정말 필수인가요?</dt>
+                <dd>A. 드라이브 와이즈는 스마트 크루즈 컨트롤, 전방 충돌 방지 보조, 안전 하차 보조 등 핵심 주행 안전 기술이 대거 집약된 핵심 안전 상품 패키지입니다. 실제 디시인사이드나 보배드림 오너들의 내돈내산 평가를 살펴보면, 주행 중 급박한 추돌 위험을 사전에 완벽히 회피할 수 있어 이 옵션만큼은 예산을 다소 무리하더라도 반드시 가입해 두는 것이 사후 중고차 매각 시 시세 보존 측면에서도 제일 현명한 방법이라고 강력하게 조언하고 있습니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q. 니로 EV 라이트 혹은 에어 트림 중 어느 쪽을 더 추천하시나요?</dt>
+                <dd>A. 도심 출퇴근 및 배달, 영업 목적 등의 가성비 중심의 사용 환경이라면 엔트리 형태인 에어 트림 혹은 마이너스 구성 형태의 합리적 트림을 권유해 드립니다. 그러나 편안한 가족 주말 레저 및 첨단 디지털 제어 옵션을 희망하신다면 헤드업 디스플레이 기능 및 어라운드 뷰 등 지능형 감지 기능이 수반된 어스(Earth) 최상위 모델을 강력하게 추천합니다.</dd>
+            </dl>
+        </section>
+
     </main>
-  </body>
-</html>
+
+  
+
+    <!-- Interactive JS Calculator and Dynamic Options Control -->
+    <script>
+        // Data Structures for 2026 Niro
+        const modelData = {
+            hev: {
+                trims: [
+                    { name: "트렌디 (28,850,000원)", price: 28850000 },
+                    { name: "프레스티지 (31,950,000원)", price: 31950000 },
+                    { name: "베스트 셀렉션 (32,060,000원)", price: 32060000 },
+                    { name: "시그니처 (34,640,000원)", price: 34640000 }
+                ],
+                options: [
+                    { name: "드라이브 와이즈 (ADAS 패키지)", price: 950000 },
+                    { name: "스타일 (외장 LED 및 휠)", price: 1000000 },
+                    { name: "모니터링 팩 (서라운드 뷰)", price: 1100000 },
+                    { name: "와이드 선루프", price: 450000 },
+                    { name: "스마트 커넥트 (무선충전)", price: 650000 },
+                    { name: "하이테크 (HUD & 헤드업)", price: 800000 }
+                ],
+                isEV: false
+            },
+            ev: {
+                trims: [
+                    { name: "에어 (48,850,000원)", price: 48850000 },
+                    { name: "어스 (51,200,000원)", price: 51200000 }
+                ],
+                options: [
+                    { name: "드라이브 와이즈 (첨단 안전)", price: 950000 },
+                    { name: "모니터링 팩 (어라운드 뷰)", price: 1200000 },
+                    { name: "선루프 & LED 실내등", price: 500000 },
+                    { name: "빌트인 캠 2 패키지", price: 700000 }
+                ],
+                isEV: true
+            },
+            plus: {
+                trims: [
+                    { name: "에어 (일반/택시 46,500,000원)", price: 46500000 },
+                    { name: "어스 (편의 강화 48,500,000원)", price: 48500000 }
+                ],
+                options: [
+                    { name: "드라이브 와이즈 패키지", price: 900000 },
+                    { name: "동승석 편의 기능 보강", price: 400000 },
+                    { name: "내비게이션 무선 업그레이드", price: 850000 }
+                ],
+                isEV: true
+            }
+        };
+
+        const subsidiesByRegion = {
+            seoul: 7700000,
+            gyeonggi: 9000000,
+            incheon: 9200000,
+            busan: 8700000,
+            daegu: 8800000,
+            sejong: 8200000
+        };
+
+        function updateTrimOptions() {
+            const modelType = document.getElementById('model-select').value;
+            const trimSelect = document.getElementById('trim-select');
+            const optionsContainer = document.getElementById('options-container');
+
+            // Clear previous trims
+            trimSelect.innerHTML = "";
+            modelData[modelType].trims.forEach(trim => {
+                const opt = document.createElement('option');
+                opt.value = trim.price;
+                opt.innerText = trim.name;
+                trimSelect.appendChild(opt);
+            });
+
+            // Clear previous options
+            optionsContainer.innerHTML = "";
+            modelData[modelType].options.forEach((opt, index) => {
+                const label = document.createElement('label');
+                label.className = "checkbox-container";
+                
+                const input = document.createElement('input');
+                input.type = "checkbox";
+                input.name = "options";
+                input.value = opt.price;
+                input.onchange = calculateEstimate;
+                
+                label.appendChild(input);
+                label.appendChild(document.createTextNode(opt.name + " (+" + opt.price.toLocaleString() + "원)"));
+                optionsContainer.appendChild(label);
+            });
+        }
+
+        function calculateEstimate() {
+            const modelType = document.getElementById('model-select').value;
+            const trimSelect = document.getElementById('trim-select');
+            const regionSelect = document.getElementById('region-select');
+            
+            const trimPrice = parseInt(trimSelect.value) || 0;
+            
+            // Sum checked options
+            let optionsPrice = 0;
+            const checkboxes = document.querySelectorAll('input[name="options"]:checked');
+            checkboxes.forEach(cb => {
+                optionsPrice += parseInt(cb.value);
+            });
+
+            const factoryPrice = trimPrice + optionsPrice;
+            
+            let subsidy = 0;
+            let tax = 0;
+
+            if (modelData[modelType].isEV) {
+                // EV 보조금 계산
+                const region = regionSelect.value;
+                subsidy = subsidiesByRegion[region] || 8000000;
+                
+                // 취등록세 계산 (전기차 감면 140만원 한도 적용)
+                const baseTax = Math.floor((factoryPrice - subsidy) * 0.07);
+                tax = Math.max(0, baseTax - 140000);
+            } else {
+                // 하이브리드 취등록세 계산 (하이브리드 감면 40만원 한도 적용)
+                const baseTax = Math.floor(factoryPrice * 0.07);
+                tax = Math.max(0, baseTax - 400000);
+                subsidy = 0; // 하이브리드는 현금성 직접 구매 보조금 지원이 제외됩니다.
+            }
+
+            const finalAmount = factoryPrice + tax - subsidy;
+
+            // Output Results
+            document.getElementById('res-factory-price').innerText = factoryPrice.toLocaleString() + " 원";
+            document.getElementById('res-tax').innerText = tax.toLocaleString() + " 원";
+            document.getElementById('res-subsidy').innerText = subsidy.toLocaleString() + " 원";
+            document.getElementById('res-final').innerText = finalAmount.toLocaleString() + " 원";
+        }
+
+        // Initialize Calculator Options on Load
+        window.onload = function() {
+            updateTrimOptions();
+            calculateEstimate();
+        };
+
+        // FAQ Accordion Toggle Interaction
+        document.querySelectorAll('.faq-dl dt').forEach((dt) => {
+            dt.addEventListener('click', () => {
+                const dd = dt.nextElementSibling;
+                const isExpanded = dt.getAttribute('aria-expanded') === 'true';
+
+                // Close other open FAQ panels
+                document.querySelectorAll('.faq-dl dt').forEach(otherDt => {
+                    otherDt.setAttribute('aria-expanded', 'false');
+                    otherDt.nextElementSibling.style.display = 'none';
+                });
+
+                // Toggle current FAQ panel
+                if (!isExpanded) {
+                    dt.setAttribute('aria-expanded', 'true');
+                    dd.style.display = 'block';
+                } else {
+                    dt.setAttribute('aria-expanded', 'false');
+                    dd.style.display = 'none';
+                }
+            });
+            
+            dt.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dt.click();
+                }
+            });
+        });
+    </script>
+  
